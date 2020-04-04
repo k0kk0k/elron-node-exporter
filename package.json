@@ -1,0 +1,35 @@
+{
+   "name": "backend-api",
+   "version": "1.0.0",
+   "description": "Backend API",
+   "bugs": {
+      "url": "https://gitlab.com/bliiitz-corp/elrond/elrond-node-exporter/issues"
+   },
+   "homepage": "https://gitlab.com/bliiitz-corp/elrond/elrond-node-exporter/blob/master/README.md",
+   "devDependencies": {
+      "@types/bcryptjs": "^2.4.2",
+      "@types/node": "^8.10.59",
+      "gulp": "^4.0.2",
+      "gulp-typescript": "^4.0.2",
+      "ts-loader": "^4.1.0",
+      "ts-node": "3.3.0",
+      "typescript": "3.3.3333"
+   },
+   "dependencies": {
+      "@types/express": "^4.17.4",
+      "axios": "^0.19.2",
+      "bcryptjs": "^2.4.3",
+      "class-validator": "^0.10.1",
+      "express": "^4.15.4",
+      "prom-client": "^11.5.3",
+      "reflect-metadata": "^0.1.10",
+      "ts-node-dev": "^1.0.0-pre.43",
+      "tslib": "^1.11.1"
+   },
+   "scripts": {
+      "start": "node dist/index.js",
+      "build": "gulp default",
+      "build:start": "gulp default;node dist/index.js",
+      "build:docker:minikube": "scripts/buildInMinikube.sh"
+   }
+}

@@ -1,0 +1,24 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - release-dev
+  - release
+
+
+variables:
+  REGISTRY_URL: "registry.gitlab.com"
+  PROJECT_PATH: "bliiitz-corp/elrond/elrond-node-exporter"
+  VERSION: "v1.0"
+
+build:
+  stage: build
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $REGISTRY_URL
+    - docker build --no-cache --build-arg VERSION=$VERSION -t $REGISTRY_URL/$PROJECT_PATH:$VERSION .
+    - docker push $REGISTRY_URL/$PROJECT_PATH:$VERSION
+  only:
+    - master
