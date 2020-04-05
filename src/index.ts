@@ -37,7 +37,7 @@ const axiosInstance = axios.create({
 console.log(config.ERD_NODE_URL)
 
 setInterval(async () => {
-  console.log('scrape')
+
   let metrics: AxiosResponse<ElrondStatus> = await axiosInstance.get<ElrondStatus>('/node/status')
 
   let labelNames: Prometheus.labelValues = {
@@ -49,6 +49,9 @@ setInterval(async () => {
     erd_peer_type: metrics.data.details.erd_peer_type,
     erd_public_key_block_sign: metrics.data.details.erd_public_key_block_sign,
   }
+
+  if(labelNames.erd_peer_type == undefined)
+    return
 
   ElrondConnectedNodes.set(labelNames, metrics.data.details.erd_connected_nodes)
   ElrondAcceptedBlock.set(labelNames, metrics.data.details.erd_connected_nodes)
