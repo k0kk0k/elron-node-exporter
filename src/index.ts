@@ -59,31 +59,82 @@ setInterval(async () => {
   if(config.DEBUG == "true")
     console.log(metrics.data.details)
 
-  ElrondConnectedNodes.set(labelNames, metrics.data.details.erd_connected_nodes)
-  ElrondAcceptedBlock.set(labelNames, metrics.data.details.erd_connected_nodes)
-  ElrondConsensus.set(labelNames, metrics.data.details.erd_count_consensus)
-  ElrondConsensusAcceptedBlock.set(labelNames, metrics.data.details.erd_count_accepted_blocks)
-  ElrondLeaders.set(labelNames, metrics.data.details.erd_count_leader)
-  ElrondCPULoadPercent.set(labelNames, metrics.data.details.erd_cpu_load_percent)
-  ElrondCurrentBlockSize.set(labelNames, metrics.data.details.erd_current_block_size)
-  ElrondCurrentRound.set(labelNames, metrics.data.details.erd_current_round)
-  ElrondValidatorLive.set(labelNames, metrics.data.details.erd_live_validator_nodes)
-  ElrondMemoryLoadPercent.set(labelNames, metrics.data.details.erd_mem_load_percent)
-  ElrondMemoryTotal.set(labelNames, metrics.data.details.erd_mem_total)
-  ElrondMemoryUsedByGolang.set(labelNames, metrics.data.details.erd_mem_used_golang)
-  ElrondMemoryUsedBySys.set(labelNames, metrics.data.details.erd_mem_used_sys)
-  ElrondConsensusGroupSize.set(labelNames, metrics.data.details.erd_consensus_group_size)
-  ElrondNetworkRecvBps.set(labelNames, metrics.data.details.erd_network_recv_bps)
-  ElrondNetworkRecvBpsPeak.set(labelNames, metrics.data.details.erd_network_recv_bps_peak)
-  ElrondNetworkRecvPercent.set(labelNames, metrics.data.details.erd_network_recv_percent)
-  ElrondNetworkSentBps.set(labelNames, metrics.data.details.erd_network_sent_bps)
-  ElrondNetworkSentBpsPeak.set(labelNames, metrics.data.details.erd_network_sent_bps_peak)
-  ElrondNetworkSentPercent.set(labelNames, metrics.data.details.erd_network_sent_percent)
-  ElrondConnectedPeers.set(labelNames, metrics.data.details.erd_num_connected_peers)
-  ElrondTransactionProcessed.set(labelNames, metrics.data.details.erd_num_transactions_processed)
-  ElrondSynchronizedRound.set(labelNames, metrics.data.details.erd_synchronized_round)
-  ElrondConsensusProcessedProposedBlock.set(labelNames, metrics.data.details.erd_consensus_processed_proposed_block)
-  ElrondConsensusReceivedProposedBlock.set(labelNames, metrics.data.details.erd_consensus_received_proposed_block)
+
+  if(metrics.data.details.erd_connected_nodes)
+    ElrondConnectedNodes.set(labelNames, metrics.data.details.erd_connected_nodes)
+
+  if(metrics.data.details.erd_connected_nodes)
+    ElrondAcceptedBlock.set(labelNames, metrics.data.details.erd_connected_nodes)
+
+  if(metrics.data.details.erd_count_consensus)
+    ElrondConsensus.set(labelNames, metrics.data.details.erd_count_consensus)
+
+  if(metrics.data.details.erd_count_accepted_blocks)
+    ElrondConsensusAcceptedBlock.set(labelNames, metrics.data.details.erd_count_accepted_blocks)
+
+  if(metrics.data.details.erd_count_leader)
+    ElrondLeaders.set(labelNames, metrics.data.details.erd_count_leader)
+
+  if(metrics.data.details.erd_cpu_load_percent)
+    ElrondCPULoadPercent.set(labelNames, metrics.data.details.erd_cpu_load_percent)
+
+  if(metrics.data.details.erd_current_block_size)
+    ElrondCurrentBlockSize.set(labelNames, metrics.data.details.erd_current_block_size)
+
+  if(metrics.data.details.erd_current_round)
+    ElrondCurrentRound.set(labelNames, metrics.data.details.erd_current_round)
+
+  if(metrics.data.details.erd_live_validator_nodes)
+    ElrondValidatorLive.set(labelNames, metrics.data.details.erd_live_validator_nodes)
+
+  if(metrics.data.details.erd_mem_load_percent)
+    ElrondMemoryLoadPercent.set(labelNames, metrics.data.details.erd_mem_load_percent)
+
+  if(metrics.data.details.erd_mem_total)  
+    ElrondMemoryTotal.set(labelNames, metrics.data.details.erd_mem_total)
+
+  if(metrics.data.details.erd_mem_used_golang)
+    ElrondMemoryUsedByGolang.set(labelNames, metrics.data.details.erd_mem_used_golang)
+
+  if(metrics.data.details.erd_mem_used_sys)
+    ElrondMemoryUsedBySys.set(labelNames, metrics.data.details.erd_mem_used_sys)
+
+  if(metrics.data.details.erd_consensus_group_size)
+    ElrondConsensusGroupSize.set(labelNames, metrics.data.details.erd_consensus_group_size)
+
+  if(metrics.data.details.erd_network_recv_bps)
+    ElrondNetworkRecvBps.set(labelNames, metrics.data.details.erd_network_recv_bps)
+
+  if(metrics.data.details.erd_network_recv_bps_peak)
+    ElrondNetworkRecvBpsPeak.set(labelNames, metrics.data.details.erd_network_recv_bps_peak)
+
+  if(metrics.data.details.erd_network_recv_percent)
+    ElrondNetworkRecvPercent.set(labelNames, metrics.data.details.erd_network_recv_percent)
+
+  if(metrics.data.details.erd_network_sent_bps)
+    ElrondNetworkSentBps.set(labelNames, metrics.data.details.erd_network_sent_bps)
+
+  if(metrics.data.details.erd_network_sent_bps_peak)
+    ElrondNetworkSentBpsPeak.set(labelNames, metrics.data.details.erd_network_sent_bps_peak)
+
+  if(metrics.data.details.erd_network_sent_percent)
+    ElrondNetworkSentPercent.set(labelNames, metrics.data.details.erd_network_sent_percent)
+
+  if(metrics.data.details.erd_num_connected_peers)
+    ElrondConnectedPeers.set(labelNames, metrics.data.details.erd_num_connected_peers)
+
+  if(metrics.data.details.erd_num_transactions_processed)
+    ElrondTransactionProcessed.set(labelNames, metrics.data.details.erd_num_transactions_processed)
+
+  if(metrics.data.details.erd_synchronized_round)
+    ElrondSynchronizedRound.set(labelNames, metrics.data.details.erd_synchronized_round)
+
+  if(metrics.data.details.erd_consensus_processed_proposed_block)
+    ElrondConsensusProcessedProposedBlock.set(labelNames, metrics.data.details.erd_consensus_processed_proposed_block)
+
+  if(metrics.data.details.erd_consensus_received_proposed_block)
+    ElrondConsensusReceivedProposedBlock.set(labelNames, metrics.data.details.erd_consensus_received_proposed_block)
+  
 
 }, 15000)
 
