@@ -19,14 +19,17 @@ import {
   ElrondMemoryUsedByGolang,
   ElrondMemoryUsedBySys,
   ElrondConsensusGroupSize,
-  ElrondNumValidators,
   ElrondNetworkRecvBps,
   ElrondNetworkRecvPercent,
   ElrondNetworkSentBps,
   ElrondNetworkSentPercent,
   ElrondConnectedPeers,
   ElrondTransactionProcessed,
-  ElrondSynchronizedRound
+  ElrondSynchronizedRound,
+  ElrondConsensusReceivedProposedBlock,
+  ElrondConsensusProcessedProposedBlock,
+  ElrondNetworkRecvBpsPeak,
+  ElrondNetworkSentBpsPeak
 } from './metrics'
 
 const axiosInstance = axios.create({
@@ -53,6 +56,9 @@ setInterval(async () => {
   if(labelNames.erd_peer_type == undefined)
     return
 
+  if(config.DEBUG == "true")
+    console.log(metrics.data.details)
+
   ElrondConnectedNodes.set(labelNames, metrics.data.details.erd_connected_nodes)
   ElrondAcceptedBlock.set(labelNames, metrics.data.details.erd_connected_nodes)
   ElrondConsensus.set(labelNames, metrics.data.details.erd_count_consensus)
@@ -66,15 +72,18 @@ setInterval(async () => {
   ElrondMemoryTotal.set(labelNames, metrics.data.details.erd_mem_total)
   ElrondMemoryUsedByGolang.set(labelNames, metrics.data.details.erd_mem_used_golang)
   ElrondMemoryUsedBySys.set(labelNames, metrics.data.details.erd_mem_used_sys)
-  ElrondConsensusGroupSize.set(labelNames, metrics.data.details.erd_metric_consensus_group_size)
-  ElrondNumValidators.set(labelNames, metrics.data.details.erd_metric_num_validators)
+  ElrondConsensusGroupSize.set(labelNames, metrics.data.details.erd_consensus_group_size)
   ElrondNetworkRecvBps.set(labelNames, metrics.data.details.erd_network_recv_bps)
+  ElrondNetworkRecvBpsPeak.set(labelNames, metrics.data.details.erd_network_recv_bps_peak)
   ElrondNetworkRecvPercent.set(labelNames, metrics.data.details.erd_network_recv_percent)
   ElrondNetworkSentBps.set(labelNames, metrics.data.details.erd_network_sent_bps)
+  ElrondNetworkSentBpsPeak.set(labelNames, metrics.data.details.erd_network_sent_bps_peak)
   ElrondNetworkSentPercent.set(labelNames, metrics.data.details.erd_network_sent_percent)
   ElrondConnectedPeers.set(labelNames, metrics.data.details.erd_num_connected_peers)
   ElrondTransactionProcessed.set(labelNames, metrics.data.details.erd_num_transactions_processed)
   ElrondSynchronizedRound.set(labelNames, metrics.data.details.erd_synchronized_round)
+  ElrondConsensusProcessedProposedBlock.set(labelNames, metrics.data.details.erd_consensus_processed_proposed_block)
+  ElrondConsensusReceivedProposedBlock.set(labelNames, metrics.data.details.erd_consensus_received_proposed_block)
 
 }, 15000)
 

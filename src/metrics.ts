@@ -10,9 +10,29 @@ const labelNames: string[] = [
   "erd_public_key_block_sign"
 ]
 
+
+
 export const ElrondConnectedNodes = new Prometheus.Gauge({
 	name: 'erd_connected_nodes',
 	help: 'erd_connected_nodes',
+	labelNames,
+});
+
+export const ElrondConsensusGroupSize = new Prometheus.Gauge({
+	name: 'erd_consensus_group_size',
+	help: 'erd_consensus_group_size',
+	labelNames,
+});
+
+export const ElrondConsensusProcessedProposedBlock = new Prometheus.Gauge({
+	name: 'erd_consensus_processed_proposed_block',
+	help: 'erd_consensus_processed_proposed_block',
+	labelNames,
+});
+
+export const ElrondConsensusReceivedProposedBlock = new Prometheus.Gauge({
+	name: 'erd_consensus_received_proposed_block',
+	help: 'erd_consensus_received_proposed_block',
 	labelNames,
 });
 
@@ -90,21 +110,14 @@ export const ElrondMemoryUsedBySys = new Prometheus.Gauge({
 	labelNames,
 });
 
-export const ElrondConsensusGroupSize = new Prometheus.Gauge({
-	name: 'erd_metric_consensus_group_size',
-	help: 'erd_metric_consensus_group_size',
-	labelNames,
-});
-
-export const ElrondNumValidators = new Prometheus.Gauge({
-	name: 'erd_metric_num_validators',
-	help: 'erd_metric_num_validators',
-	labelNames,
-});
-
 export const ElrondNetworkRecvBps = new Prometheus.Gauge({
 	name: 'erd_network_recv_bps',
 	help: 'erd_network_recv_bps',
+	labelNames,
+});
+export const ElrondNetworkRecvBpsPeak = new Prometheus.Gauge({
+	name: 'erd_network_recv_bps_peak',
+	help: 'erd_network_recv_bps_peak',
 	labelNames,
 });
 
@@ -117,6 +130,12 @@ export const ElrondNetworkRecvPercent = new Prometheus.Gauge({
 export const ElrondNetworkSentBps = new Prometheus.Gauge({
 	name: 'erd_network_sent_bps',
 	help: 'erd_network_sent_bps',
+	labelNames,
+});
+
+export const ElrondNetworkSentBpsPeak = new Prometheus.Gauge({
+	name: 'erd_network_sent_bps_peak',
+	help: 'erd_network_sent_bps_peak',
 	labelNames,
 });
 
