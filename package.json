@@ -3,9 +3,9 @@
    "version": "1.0.0",
    "description": "Backend API",
    "bugs": {
-      "url": "https://gitlab.com/bliiitz-corp/elrond/elrond-node-exporter/issues"
+      "url": "https://github.com/k0kk0k/elron-node-exporter/issues"
    },
-   "homepage": "https://gitlab.com/bliiitz-corp/elrond/elrond-node-exporter/blob/master/README.md",
+   "homepage": "https://github.com/k0kk0k/elron-node-exporter/blob/master/README.md",
    "devDependencies": {
       "@types/bcryptjs": "^2.4.2",
       "@types/node": "^8.10.59",
