@@ -20,7 +20,10 @@ npm run build
 ```
 
 # Execute
-`npm run start`
+Run in directory `elrond-node-exporter`:
+```
+npm run start
+```
 
 # Environment variables default:
 
