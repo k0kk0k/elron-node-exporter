@@ -1,10 +1,8 @@
 # Elrond node exporter
 
-This container request `/node/status` of an Elrond node and expose metrics formatted for Prometheus
+This exporter request `/node/status` of an Elrond node and expose metrics formatted for Prometheus
+This repo imported from original repo on gitlab: https://gitlab.com/bliiitz-corp/elrond/elrond-node-exporter
 
-# Docker Image
-
-`registry.gitlab.com/bliiitz-corp/elrond/elrond-node-exporter:v1.0`
 
 # Environment variables default:
 
