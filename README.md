@@ -14,9 +14,7 @@ sudo apt-get install -y nodejs
 # Install dependencies and build
 ```
 git clone https://github.com/k0kk0k/elrond-node-exporter.git
-
 cd elrond-node-exporter
-
 npm install
 npm run build
 ```
